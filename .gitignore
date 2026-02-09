@@ -1,0 +1,24 @@
+# Ignore raw data
+data/raw/*.csv
+Data/processing/*
+
+# Ignore notebooks (for initial commit)
+
+
+# Ignore Jupiter checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environments
+vent/
+.env
+
+# Ignore any output files
+*.pkl
+*.joblib
+*.csv
+
+# OS/ IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
