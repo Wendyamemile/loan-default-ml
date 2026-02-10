@@ -5,7 +5,7 @@ TEST_SIZE = 0.2
 TARGET = "Default"
 
 # Numerical features
-NUM_FEATURES = []
+NUM_FEATURES = ["Age","Income","LoanAmount","CreditScore"]
 
 # Categorical features
-CAT_FEATURES = []
+CAT_FEATURES = ["Education","EmploymentType"]

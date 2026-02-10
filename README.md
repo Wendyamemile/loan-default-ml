@@ -27,3 +27,15 @@ To reproduce the projects:
   - TARGET variable (`Default`)
   - Numerical features list
   - Categorical features list
+
+## EDA 
+The exploratory data analysis (EDA) is in 'notebooks/01_eda.ipynb'.
+- Target variables analysis (Default (imbalanced: ~11.7%))
+- Feature distributions
+- Missing values check
+- Correlations betwen features
+- ROC-AUC ( chosen due to class imbalance )
+
+## Current Status
+- EDA completed
+- Preprocessing pipeline: upcomming
