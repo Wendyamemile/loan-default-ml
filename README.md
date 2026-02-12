@@ -36,6 +36,30 @@ The exploratory data analysis (EDA) is in 'notebooks/01_eda.ipynb'.
 - Correlations betwen features
 - ROC-AUC ( chosen due to class imbalance )
 
+## Preprocessing 
+This step transform raw data into a format suitable for modeling. All features are prepared using pipelines for consistency an reusability. It is in 'notebooks/01_preprocessing.ipynb'. 
+
+### Preprocessing steps
+- Load dataset
+- Separate features and target
+    - Features: 'NUM_FEATURES' + 'CAT_FEATURES'
+    - Target: 'TARGET' 
+- Train/Test split
+    - 80/20 split ('TEST_SIZE=0.2')
+    - Stratified to preserve class imbalance ('RANDOM_STATE=42')
+- Numeric features preprocessing - scale with 'StandardScaler'
+- Categorical features preprocessing - encoded with 'OneHotEncoder'
+- Pipeline - combine numerical + categorical pipeline using 'ColumnTansformer'
+
+### Preprocessing Module
+- 'src/preprocessing.py' contains ** reusable preprocessing pipelines ** for consistent application in notebooks and modeling scripts.
+
+### key takeaways
+- Numeric features scaled, categorical features encoded
+- Train/Test split preserves imbalanced target (~11,7%)
+- Preprocessor ready for baseline modeling
+
 ## Current Status
-- EDA completed
-- Preprocessing pipeline: upcomming
+- EDA: completed
+- Preprocessing : completed
+- Build Badeline Models: upcoming
