@@ -59,7 +59,23 @@ This step transform raw data into a format suitable for modeling. All features a
 - Train/Test split preserves imbalanced target (~11,7%)
 - Preprocessor ready for baseline modeling
 
+## Build Baseline Models
+
+The baseline model is the first, simple model in this project.  
+It serves as a reference point for evaluating the performance of more complex models.
+
+### Purpose
+- Provides a performance floor to compare future models.  
+- Helps check if features contain useful information.  
+- Quick to implement and interpret.
+
+### Implementation
+
+- Classification: Predicts the most frequent class using sklearn.dummy.DummyClassifier.  
+- Regression: Predicts the mean of the target variable using sklearn.dummy.DummyRegressor.
+
 ## Current Status
 - EDA: completed
 - Preprocessing : completed
-- Build Badeline Models: upcoming
+- Build Badeline Models: completed
+- Model Evaluation: upcoming
