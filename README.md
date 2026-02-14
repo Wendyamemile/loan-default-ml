@@ -74,6 +74,13 @@ It serves as a reference point for evaluating the performance of more complex mo
 - Classification - Random Forest
 - Regression - Logistic Regression
 
+## Model Evaluation
+The evaluation of our initial model includes Logistic Regression (LR) and Random Forest (RF).
+- Accuracy, precision, recall, and F1-score metrics
+- Confusion matrix visualization to check misclassifications
+- Comparaison betwen models to see improvement
+- Identification of the best-performing model for further tuning
+
 ## Current Status
 - EDA: completed
 - Preprocessing : completed
