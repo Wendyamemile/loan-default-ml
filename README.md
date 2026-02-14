@@ -85,4 +85,5 @@ The evaluation of our initial model includes Logistic Regression (LR) and Random
 - EDA: completed
 - Preprocessing : completed
 - Build Badeline Models: completed
-- Model Evaluation: upcoming
+- Model Evaluation: completed
+- Improvement: upcoming
