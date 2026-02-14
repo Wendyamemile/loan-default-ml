@@ -71,8 +71,8 @@ It serves as a reference point for evaluating the performance of more complex mo
 
 ### Implementation
 
-- Classification: Predicts the most frequent class using sklearn.dummy.DummyClassifier.  
-- Regression: Predicts the mean of the target variable using sklearn.dummy.DummyRegressor.
+- Classification - Random Forest
+- Regression - Logistic Regression
 
 ## Current Status
 - EDA: completed
