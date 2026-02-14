@@ -1,6 +1,6 @@
 # Ignore raw data
 data/raw/*.csv
-Data/processing/*
+data/processed/*.csv
 
 # Ignore notebooks (for initial commit)
 

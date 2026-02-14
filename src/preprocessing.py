@@ -16,8 +16,8 @@ def build_preprocessor(num_features, cat_features):
 
     # Combine pipelines
     preprocessor = ColumnTransformer([
-        ("num", numeric_pipeline, NUM_FEATURES),
-        ("cat", categorical_pipeline, CAT_FEATURES)
+        ("num", numeric_pipeline, num_features),
+        ("cat", categorical_pipeline, cat_features)
     ])
 
     # Return a fitted ColumnTransformer for preprocessing
