@@ -5,6 +5,7 @@ This project aims to predict loan defaults using an anonymized dataset.
 The goal is to build a professional ML pipeline following best practices.
 
 ## Project Structure
+```bash
 loan-default-ml/
 │
 ├── app/                # Scripts or API (future)
@@ -16,6 +17,7 @@ loan-default-ml/
 ├── requirements.txt    # Python dependencies
 ├── README.md           # Project documentation
 └── .gitignore          # Files ignored by Git
+```
 
 ## Dataset
 The dataset used in this project comes from kaggle and is not included in this repository.
