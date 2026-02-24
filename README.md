@@ -91,3 +91,22 @@ The evaluation of our initial model includes Logistic Regression (LR) and Random
 - Build Badeline Models: completed
 - Model Evaluation: completed
 - Improvement: upcoming
+
+## How to Run
+- Clone the repository
+```bash
+git clone https://github.com/Wendyamemile/loan-default-ml.git
+```
+
+## Show Results - Baseline Models
+```bash
+| Model                  | Accuracy | Precision | Recall | F1-score | ROC-AUC |
+|------------------------|---------|-----------|--------|----------|---------|
+| Logistic Regression    | 0.63    | 0.84      | 0.63   | 0.69     | 0.7001  |
+| Random Forest          | 0.8830  | 0.8362    | 0.8830 | 0.8362   | 0.6557  |
+```
+
+Observations:
+- Logistic Regression is interpretable and better at ranking positives (higher ROC-AUC).
+- Random Forest has higher accuracy and recall but lower ROC-AUC → may overfit to the majority class.
+- ROC-AUC is important for imbalanced data, showing how well the model separates defaults from non-defaults.
