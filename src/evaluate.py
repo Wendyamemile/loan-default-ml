@@ -4,6 +4,8 @@ import seaborn as sns
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
+    classification_report,
+    roc_auc_score,
     recall_score,
     f1_score,
     confusion_matrix
@@ -44,17 +46,41 @@ def evaluate_classification(y_true, y_pred, baseline_accuracy=None):
     plt.show()
 
 
-def evaluate_model(y_true, y_pred, task="classification", baseline_metric=None):
+def evaluate_model(y_true, y_pred, y_probs=None, threshold=None, baseline_metric=None):
     """
-    General evaluation function for classification (and future regression).
+    Evaluate classification model performance.
     
     Parameters:
-    - y_true: array-like, true labels
-    - y_pred: array-like, predicted labels
-    - task: "classification" (default) or "regression"
-    - baseline_metric: baseline accuracy for classification or baseline MSE for regression
+    - y_true: true labels
+    - y_pred: predicted labels
+    - y_probs: predicted probabilities for class 1 (optional)
+    - threshold: decision threshold used (optional)
+    - baseline_metric: baseline accuracy for comparison (optional)
     """
-    if task == "classification":
-        evaluate_classification(y_true, y_pred, baseline_accuracy=baseline_metric)
-    else:
-        raise ValueError("Currently only 'classification' is implemented.")
+
+    print("\n=== Classification Report ===")
+    print(classification_report(y_true, y_pred))
+
+    accuracy = accuracy_score(y_true, y_pred)
+    print(f"Accuracy: {accuracy:.4f}")
+
+    if y_probs is not None:
+        roc_auc = roc_auc_score(y_true, y_probs)
+        print(f"ROC-AUC: {roc_auc:.4f}")
+
+    if threshold is not None:
+        print(f"Threshold used: {threshold:.4f}")
+
+    if baseline_metric is not None:
+        improvement = accuracy - baseline_metric
+        print(f"Baseline Accuracy: {baseline_metric:.4f}")
+        print(f"Improvement over baseline: {improvement:.4f}")
+
+    # Confusion matrix
+    cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(5, 4))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title("Confusion Matrix")
+    plt.show()

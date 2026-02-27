@@ -4,6 +4,20 @@
 This project aims to predict loan defaults using an anonymized dataset. 
 The goal is to build a professional ML pipeline following best practices.
 
+## Current Status
+- EDA: completed
+- Preprocessing : completed
+- Build Badeline Models: completed
+- Model Evaluation: completed
+- Improvement: completed
+- Future improvement ( Advance models ) : upcoming
+
+## How to Run
+- Clone the repository
+```bash
+git clone https://github.com/Wendyamemile/loan-default-ml.git
+```
+
 ## Project Structure
 ```bash
 loan-default-ml/
@@ -85,19 +99,6 @@ The evaluation of our initial model includes Logistic Regression (LR) and Random
 - Comparaison betwen models to see improvement
 - Identification of the best-performing model for further tuning
 
-## Current Status
-- EDA: completed
-- Preprocessing : completed
-- Build Badeline Models: completed
-- Model Evaluation: completed
-- Improvement: upcoming
-
-## How to Run
-- Clone the repository
-```bash
-git clone https://github.com/Wendyamemile/loan-default-ml.git
-```
-
 ## Show Results - Baseline Models
 ```bash
 | Model                  | Accuracy | Precision | Recall | F1-score | ROC-AUC |
@@ -110,3 +111,58 @@ Observations:
 - Logistic Regression is interpretable and better at ranking positives (higher ROC-AUC).
 - Random Forest has higher accuracy and recall but lower ROC-AUC → may overfit to the majority class.
 - ROC-AUC is important for imbalanced data, showing how well the model separates defaults from non-defaults.
+
+## Improved Model (RF + SMOTE + Hyperparameter Tuning + Threshold Tuning)
+
+
+### Baseline Random Forest (original, no SMOTE)
+- Accuracy: 0.8830
+- Precision (class 1): 0.45
+- Recall (class 1): 0.034
+- F1-score (class 1): 0.06
+- ROC-AUC: 0.6557
+- Threshold: default (0.5)
+
+Confusion Matrix (Baseline):
+```bash
+|          | Predicted 0 | Predicted 1 |
+|----------|-------------|-------------|
+| Actual 0 | 44888       | 251         |
+| Actual 1 | 5725        | 206         |
+```
+---
+
+### Improved Random Forest ( Hyperparameter Tuning + SMOTE + Threshold Tuning)
+- Accuracy: 0.7687
+- Precision (class 1): 0.24
+- Recall (class 1): 0.45
+- F1-score (class 1): 0.31
+- ROC-AUC: 0.7002
+- Threshold: ~ 0.5747
+
+Confusion Matrix (Improved RF):
+```bash
+|          | Predicted 0 | Predicted 1 |
+|----------|-------------|-------------|
+| Actual 0 | 36602       | 8537        |
+| Actual 1 | 3275        | 2656        |
+```
+> Note: Class 1 corresponds to loan defaults. SMOTE and threshold tuning improve detection of defaults (recall) at the cost of slightly lower overall accuracy.
+
+Observation:  
+- Improved pipeline detects many more actual defaults (TP increases from 206 → 2,656).  
+- False positives increase (FP rises from 251 → 8,537), which reduces overall accuracy.  
+- ROC-AUC improves (0.6557 → 0.7002), showing better separation between default and non-default.  
+- Threshold tuning ensures optimal balance between precision and recall for real-world use.
+
+---
+
+## Summary
+
+- Baseline Model: Achieved high overall accuracy but failed to detect most default cases due to class imbalance.
+- Improved Model (SMOTE + Tuning + Threshold Optimization): Significantly improved default detection, increased ROC-AUC, and achieved a more balanced F1-score.
+- Trade-off: Slight decrease in overall accuracy, but substantially better identification of high-risk borrowers.
+
+Final Choice: The improved Random Forest model was selected because it better aligns with the business objective of minimizing credit risk by detecting potential loan defaults.
+
+
