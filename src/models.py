@@ -1,6 +1,7 @@
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
 
 def build_lr_pipeline(preprocessor=None, random_state=None):
     """

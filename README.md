@@ -10,7 +10,6 @@ The goal is to build a professional ML pipeline following best practices.
 - Build Badeline Models: completed
 - Model Evaluation: completed
 - Improvement: completed
-- Future improvement ( Advance models ) : upcoming
 
 ## How to Run
 - Clone the repository
